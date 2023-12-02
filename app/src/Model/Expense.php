@@ -20,6 +20,8 @@ class Expense extends DataObject
         'Member' => Member::class,
     ];
 
+    private static $api_access = true;
+
     private static $has_many = [];
 
     private static $many_many = [];
