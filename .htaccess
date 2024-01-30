@@ -1,2 +1,7 @@
 RewriteEngine On
 RewriteRule ^(.*)$ public/$1
+
+<IfModule mod_headers.c>
+    # Set custom headers
+    Header set Access-Control-Allow-Origin "*"
+</IfModule>

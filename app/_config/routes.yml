@@ -1,0 +1,4 @@
+
+SilverStripe\Control\Director:
+  rules:
+#    'expense' : 'Expenses\Controller\ExpenseController'

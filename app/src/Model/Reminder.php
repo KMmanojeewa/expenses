@@ -2,6 +2,7 @@
 
 namespace Expenses\Model;
 
+use Expenses\Model\Page\Expense;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Member;
 

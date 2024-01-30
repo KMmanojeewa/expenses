@@ -24,3 +24,5 @@ SilverStripe\Core\Injector\Injector:
     constructor:
       - "./silverstripe.log"
       - "info"
+  SilverStripe\RestfulServer\RestfulServer:
+    class: Expenses\Controller\CustomRestfulServer

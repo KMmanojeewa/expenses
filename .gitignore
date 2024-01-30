@@ -6,3 +6,5 @@
 /public/_resources/
 /.graphql-generated/
 /public/_graphql/
+/themes/expense/node_modules
+/node_modules
