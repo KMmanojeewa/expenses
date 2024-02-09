@@ -27,10 +27,24 @@ Change it, enhance it and most importantly enjoy it!
 <%--	<% require themedCSS('form') %>--%>
 <%--	<% require themedCSS('layout') %>--%>
 
+    <style data-href="https://fonts.googleapis.com/css2?family=family=Inter:wght@100..900&amp;display=swap">
+        @font-face{
+            font-family:'Inter';
+            font-style:normal;
+            font-weight:400;
+            font-display:swap;
+            src:url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfMZs.woff) format('woff')}
+        @font-face{
+            font-family:'Inter';
+            font-style:normal;
+            font-weight:600;
+            font-display:swap;
+            src:url(https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuDyfMZs.woff) format('woff')}
+        </style>
 </head>
 <body class="$ClassName.ShortName<% if not $Menu(2) %> no-sidebar<% end_if %>" <% if $i18nScriptDirection %>dir="$i18nScriptDirection"<% end_if %>>
 
-<% if $isExpensesPage %>
+<% if $isExpensesPage || $isSamplePage %>
     $Layout
 <% else %>
     <% include Header %>

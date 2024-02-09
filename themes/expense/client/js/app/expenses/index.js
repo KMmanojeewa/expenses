@@ -1,11 +1,15 @@
 import React from "react";
 import { createRoot } from 'react-dom/client';
+import App from "./components/App";
+import "./style.css";
 
 function ExpensesApp() {
-    return <h1>Hello from react</h1>;
+    return <App />;
 }
 
 const domNode = document.getElementById('expenses-page');
+if(domNode) {
+    const root = createRoot(domNode);
+    root.render(<ExpensesApp />);
+}
 
-const root = createRoot(domNode);
-root.render(<ExpensesApp />);

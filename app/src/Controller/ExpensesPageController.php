@@ -16,6 +16,11 @@ class ExpensesPageController extends PageController
         'editExpense',
     ];
 
+    public function createExpense()
+    {
+        echo 'createExpense';
+    }
+
     public function getExpenses()
     {
         $expenses = ExpensesPage::get();

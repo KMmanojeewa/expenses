@@ -1,0 +1,121 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    padding: 0;
+}
+
+h1 {
+    margin-top: 0;
+    font-size: 22px;
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+h3 {
+    margin-top: 0;
+    font-size: 18px;
+}
+
+h4 {
+    margin-top: 0;
+    font-size: 16px;
+}
+
+h5 {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+h6 {
+    margin-top: 0;
+    font-size: 12px;
+}
+
+code {
+    font-size: 1.2em;
+}
+
+ul {
+    padding-inline-start: 20px;
+}
+
+li {
+    list-style: none;
+}
+
+.sidebar li {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.sidebar li.active {
+    background: #86b69c;
+}
+
+.sidebar li:hover {
+    background: #86b69c;
+    cursor: pointer;
+}
+
+.main-app {
+    display: flex;
+    justify-content: space-around;
+    min-height: 500px;
+    font-family: "Inter", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+.sidebar {
+    background: #506551;
+    width: 20%;
+}
+
+.content {
+    background: #86b69c;
+    width: 80%;
+}
+
+
+.input-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-item {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    padding: 5px;
+}
+
+.input-item span{
+    padding-left: 5px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+}
+
+.input-item input{
+    margin-left: 5px;
+    padding: 5px;
+}
+
+.input-item textarea{
+    resize: none;
+}
+
+button {
+    padding: 10px;
+    margin: 5px;
+    font-family: inherit;
+    cursor: pointer;
+}

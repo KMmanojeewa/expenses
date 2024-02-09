@@ -1,4 +1,4 @@
 
 SilverStripe\Control\Director:
   rules:
-#    'expense' : 'Expenses\Controller\ExpenseController'
+    'api//$Action//$ID' : 'Expenses\Controller\ExpensesPageController'
