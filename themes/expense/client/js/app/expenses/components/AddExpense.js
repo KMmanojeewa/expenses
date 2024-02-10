@@ -1,10 +1,14 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
+import moment from "moment";
 
 export default function AddExpense() {
 
+    var today = moment().format("YYYY-MM-DD");
+    console.log(today);
+
     const [amount, setAmount] = useState(null);
-    const [date, setDate] = useState(null);
+    const [date, setDate] = useState(today);
     const [description, setDescription] = useState(null);
 
     function setAmountValue(e) {
@@ -23,6 +27,8 @@ export default function AddExpense() {
     }
 
     function handleCreateExpense() {
+        console.log('date', date)
+
         let baseURL = '/api/createExpense';
         let reqData = {
             'amount': amount,
@@ -49,7 +55,7 @@ export default function AddExpense() {
                 </div>
                 <div className="input-item">
                     <span>Date</span>
-                    <input name="date" type="date" onChange={setDateValue}/>
+                    <input name="date" type="date" onChange={setDateValue} value={today}/>
                 </div>
                 <div className="input-item">
                     <span>Description</span>
