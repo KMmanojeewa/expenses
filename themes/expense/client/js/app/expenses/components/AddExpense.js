@@ -13,20 +13,24 @@ export default function AddExpense() {
         const formDataByDefault = new FormData(formRef.current);
 
         if(validateData(formDataByDefault)) {
+            console.log('validated')
             handleCreateExpense(formDataByDefault);
         }
     }
 
     function validateData(data) {
+        let valid = true;
         for (let [key, value] of data.entries()) {
             if(!value) {
-                setErrorMessage(key+' cannot be empty');
-                return false;
+                // setErrorMessage(key+' cannot be empty');
+                valid = false;
             }
         }
+        return valid;
     }
 
     function handleCreateExpense(data) {
+        console.log('handleCreateExpense', data)
         let baseURL = '/api/createExpense';
         axios
             .post(baseURL, data)

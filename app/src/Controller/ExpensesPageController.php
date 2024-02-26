@@ -50,7 +50,15 @@ class ExpensesPageController extends PageController
 
     public function getExpenses()
     {
-        $expenses = ExpensesPage::get();
-        echo '<pre>'.print_r($expenses->map('ID','Amount')->toArray(),1);die();
+        $expenses = Expense::get();
+        $dataArr = [];
+        foreach ($expenses as $expense) {
+            $arr = [];
+            $arr['Amount'] = $expense->Amount;
+            $arr['Description'] = $expense->Description;
+            $arr['Date'] = $expense->Date;
+            $dataArr[] = $arr;
+        }
+        return json_encode($dataArr);
     }
 }
