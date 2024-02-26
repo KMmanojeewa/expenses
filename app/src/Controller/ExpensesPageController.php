@@ -2,8 +2,10 @@
 
 namespace Expenses\Controller;
 
+use Expenses\Model\Expense;
 use Expenses\Model\Page\ExpensesPage;
 use PageController;
+use SilverStripe\Control\HTTPRequest;
 
 class ExpensesPageController extends PageController
 {
@@ -16,9 +18,34 @@ class ExpensesPageController extends PageController
         'editExpense',
     ];
 
-    public function createExpense()
+    public function createExpense(HTTPRequest $request)
     {
-        echo 'createExpense';
+        //input data from request
+        $data = $request->postVars();
+        $amount = $data['amount'];
+        $date = $data['date'];
+        $description = $data['description'];
+
+        //return data
+        $status = 'failed';
+        $message = 'Something went wrong';
+
+        //process expense
+        if($amount && $date && $description) {
+            $expense = new Expense([
+                'Amount' => $amount,
+                'Date' => $date,
+                'Description' => $description
+            ]);
+            $expense->write();
+            $status = 'success';
+            $message = 'Expense created';
+        }
+
+        return json_encode([
+            'status' => $status,
+            'message' => $message
+        ]);
     }
 
     public function getExpenses()

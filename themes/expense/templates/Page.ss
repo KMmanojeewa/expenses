@@ -44,7 +44,7 @@ Change it, enhance it and most importantly enjoy it!
 </head>
 <body class="$ClassName.ShortName<% if not $Menu(2) %> no-sidebar<% end_if %>" <% if $i18nScriptDirection %>dir="$i18nScriptDirection"<% end_if %>>
 
-<% if $isExpensesPage || $isSamplePage %>
+<% if $isExpensesPage || $isSamplePage || $isPureJSPage %>
     $Layout
 <% else %>
     <% include Header %>

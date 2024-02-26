@@ -2,7 +2,6 @@
 
 namespace Expenses\Model;
 
-use Expenses\Model\Page\ExpensesPage;
 use SilverStripe\ORM\DataObject;
 use SilverStripe\Security\Member;
 
@@ -17,7 +16,6 @@ class Expense extends DataObject
     ];
 
     private static $has_one = [
-        'ExpensesPage' => ExpensesPage::class,
         'ExpenseCategory' => ExpenseCategory::class,
         'Member' => Member::class,
     ];

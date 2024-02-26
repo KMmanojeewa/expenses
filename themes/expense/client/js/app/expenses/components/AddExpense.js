@@ -1,44 +1,37 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import moment from "moment";
+var today = moment().format("YYYY-MM-DD");
 
 export default function AddExpense() {
 
-    var today = moment().format("YYYY-MM-DD");
-    console.log(today);
+    const formRef = useRef(null);
+    const [errorMessage, setErrorMessage] = useState(null);
 
-    const [amount, setAmount] = useState(null);
-    const [date, setDate] = useState(today);
-    const [description, setDescription] = useState(null);
-
-    function setAmountValue(e) {
+    function handleSubmit(e) {
         e.preventDefault();
-        setAmount(e.target.value);
+        const formDataByDefault = new FormData(formRef.current);
+
+        if(validateData(formDataByDefault)) {
+            handleCreateExpense(formDataByDefault);
+        }
     }
 
-    function setDateValue(e) {
-        e.preventDefault();
-        setDate(e.target.value);
+    function validateData(data) {
+        for (let [key, value] of data.entries()) {
+            if(!value) {
+                setErrorMessage(key+' cannot be empty');
+                return false;
+            }
+        }
     }
 
-    function setDescriptionValue(e) {
-        e.preventDefault();
-        setDescription(e.target.value);
-    }
-
-    function handleCreateExpense() {
-        console.log('date', date)
-
+    function handleCreateExpense(data) {
         let baseURL = '/api/createExpense';
-        let reqData = {
-            'amount': amount,
-            'date': date,
-            'description': description,
-        };
         axios
-            .post(baseURL, reqData)
+            .post(baseURL, data)
             .then((response) => {
-                console.log(response.data);
+                console.log(response);
             });
     }
 
@@ -48,23 +41,32 @@ export default function AddExpense() {
             <div className="header">
                 <p>Add expense</p>
             </div>
-            <div className="input-items">
+            <div className="message">
+                <p>{errorMessage}</p>
+                {/*{errorMessage && errorMessage.map((message, index) => {*/}
+                {/*    return <p key={index}>{message}</p>*/}
+                {/*})}*/}
+            </div>
+            <form ref={formRef} onSubmit={handleSubmit}>
                 <div className="input-item">
                     <span>Amount</span>
-                    <input name="amount" type="text" onChange={setAmountValue}/>
+                    <input name="amount" type="text" />
                 </div>
                 <div className="input-item">
                     <span>Date</span>
-                    <input name="date" type="date" onChange={setDateValue} value={today}/>
+                    <input name="date" type="date" />
                 </div>
                 <div className="input-item">
                     <span>Description</span>
-                    <textarea name="description"  onChange={setDescriptionValue}/>
+                    <textarea name="description" />
                 </div>
-            </div>
+                <div className="input-item">
+                    <input className="submit" type="submit" name="Submit" />
+                </div>
+            </form>
             <div className="actions" >
-                <button className="submit" type="button" onClick={handleCreateExpense}>Submit</button>
-                <button className="clear" type="button">Clear</button>
+                {/*<button className="submit" type="button" onClick={handleCreateExpense}>Submit</button>*/}
+                {/*<button className="clear" type="button">Clear</button>*/}
             </div>
         </div>
     )

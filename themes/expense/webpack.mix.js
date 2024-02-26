@@ -10,6 +10,7 @@ let mix = require("laravel-mix");
 // Javascript & Vue files
 mix.js("./client/js/app/index.js", "./dist/js/app.min.js")
     .copy("./client/img", "./dist/img")
+    .copy("./client/videos", "./dist/videos")
     // CSS files
 
     // Options

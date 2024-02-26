@@ -3,6 +3,7 @@
 namespace {
 
     use Expenses\Model\Page\ExpensesPage;
+    use Expenses\Model\Page\PureJSPage;
     use Expenses\Model\Page\SamplePage;
     use SilverStripe\CMS\Model\SiteTree;
 
@@ -22,6 +23,13 @@ namespace {
         public function isSamplePage()
         {
             if($this->ClassName == SamplePage::class) {
+                return true;
+            }
+        }
+
+        public function isPureJSPage()
+        {
+            if($this->ClassName == PureJSPage::class) {
                 return true;
             }
         }
